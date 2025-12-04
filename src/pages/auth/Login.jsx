@@ -1,14 +1,19 @@
 import { useMutation } from "@tanstack/react-query";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import login from "../../services/auth/login";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../context/AuthContext";
+import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
   const [formData, SetFormData] = useState({
     email: "",
     password: "",
   });
+  const { login: saveToken } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     SetFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,11 +22,18 @@ const Login = () => {
   const loginMutation = useMutation({
     mutationFn: login,
     onSuccess: (data) => {
-      toast.success(data?.message);
+      const decoded = jwtDecode(data?.data?.token);
+      saveToken(data?.data?.token);
+
       console.log("Login successful:", data);
+      toast.success("Login Successful!");
+
+      if (decoded.role === 1) navigate("/");
+      if (decoded.role === 2) navigate("/");
+      if (decoded.role === 3) navigate("/");
     },
     onError: (err) => {
-      toast.error(err?.message);
+      toast.error(err?.response?.data?.message);
       console.error("Login failed:", err);
     },
   });
