@@ -47,42 +47,54 @@ const Login = () => {
 
   return (
     <>
-      <section>
-        <div className="border w-120 h-auto mx-auto mt-20 p-10">
-          <div className="flex justify-between">
-            <h2 className="text-1xl">Login</h2>
-            <p>
-              New User?{" "}
-              <Link to={"/signup"} className="text-blue-600">
-                Create Account
+      <section className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+        <div className="w-full max-w-md bg-white shadow-sm rounded-2xl p-8">
+          {/* Header */}
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-2">
+            <h2 className="text-3xl font-bold text-gray-900 text-center sm:text-left">
+              Welcome Back
+            </h2>
+            <p className="text-sm text-center sm:text-left">
+              New user?{" "}
+              <Link
+                to="/signup"
+                className="text-blue-600 font-semibold hover:underline"
+              >
+                Create account
               </Link>
             </p>
           </div>
 
-          <div>
-            <form onSubmit={handleLogin} className="flex flex-col gap-4 mt-4">
-              <input
-                type="text"
-                className="border p-1"
-                placeholder="Enter Your Email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
+          {/* Form */}
+          <form onSubmit={handleLogin} className="flex flex-col gap-4">
+            <input
+              type="text"
+              name="email"
+              placeholder="Email address"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full border rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
 
-              <input
-                type="password"
-                className="border p-1"
-                placeholder="Enter Your Email"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full border rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
 
-              <button className="bg-blue-600 text-white p-2 mt-4 cursor-pointer hover:bg-blue-800">
-                Login
-              </button>
-            </form>
+            <button className="bg-blue-600 text-white cursor-pointer py-3 rounded-lg mt-2 hover:bg-blue-700 transition-all font-medium">
+              Login
+            </button>
+          </form>
+
+          {/* Footer */}
+          <div className="text-center mt-4">
+            <button className="text-blue-600 text-sm hover:underline">
+              Forgot Password?
+            </button>
           </div>
         </div>
       </section>
