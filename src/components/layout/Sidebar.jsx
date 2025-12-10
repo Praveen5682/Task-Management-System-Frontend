@@ -25,6 +25,12 @@ const Sidebar = ({ closeSidebar }) => {
       description: "Overview of tasks, projects, and team",
     },
     {
+      path: "/users",
+      label: "Users",
+      icon: <FiUsers />,
+      description: "View, create, assign, and manage tasks",
+    },
+    {
       path: "/tasks",
       label: "Tasks",
       icon: <FiClipboard />,
@@ -41,12 +47,6 @@ const Sidebar = ({ closeSidebar }) => {
       label: "Team",
       icon: <FiUsers />,
       description: "Manage team members and roles",
-    },
-    {
-      path: "/notifications",
-      label: "Notifications",
-      icon: <FiBell />,
-      description: "View task and project alerts",
     },
   ];
 
@@ -66,7 +66,7 @@ const Sidebar = ({ closeSidebar }) => {
               key={item.path}
               to={item.path}
               onClick={handleClick}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200
+              className={`flex items-center gap-3 px-4 py-3  text-lg font-medium transition-all duration-200
                 ${
                   active
                     ? "bg-blue-600 text-white shadow-md"

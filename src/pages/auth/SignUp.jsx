@@ -61,7 +61,7 @@ const SignUp = () => {
             value={formData.name}
             name="name"
             onChange={handleChange}
-            className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <input
@@ -70,7 +70,7 @@ const SignUp = () => {
             value={formData.email}
             name="email"
             onChange={handleChange}
-            className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <input
@@ -79,7 +79,7 @@ const SignUp = () => {
             value={formData.password}
             name="password"
             onChange={handleChange}
-            className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
           <input
@@ -88,10 +88,10 @@ const SignUp = () => {
             value={formData.confirmPassword}
             name="confirmPassword"
             onChange={handleChange}
-            className="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
-          <button className="bg-blue-600 text-white py-3 rounded-lg mt-2 hover:bg-blue-700 transition font-semibold cursor-pointer">
+          <button className="bg-blue-600 text-white py-3  mt-2 hover:bg-blue-700 transition font-semibold cursor-pointer">
             Sign Up
           </button>
         </form>

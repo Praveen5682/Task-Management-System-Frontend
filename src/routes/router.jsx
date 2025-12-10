@@ -6,7 +6,7 @@ import AdminHome from "../pages/Dashboard/admin/AdminHome";
 import AdminTasks from "../pages/Dashboard/admin/AdminTasks";
 import AdminProjects from "../pages/Dashboard/admin/AdminProjects";
 import AdminTeam from "../pages/Dashboard/admin/AdminTeam";
-import AdminNotifications from "../pages/Dashboard/admin/AdminNotifications";
+import AdminUsers from "../pages/Dashboard/admin/AdminUsers";
 
 const router = createBrowserRouter([
   {
@@ -14,10 +14,10 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       { index: true, element: <AdminHome />, role: "admin" },
+      { path: "users", element: <AdminUsers />, role: "admin" },
       { path: "tasks", element: <AdminTasks />, role: "admin" },
       { path: "projects", element: <AdminProjects />, role: "admin" },
       { path: "team", element: <AdminTeam />, role: "admin" },
-      { path: "notifications", element: <AdminNotifications />, role: "admin" },
     ],
   },
   {

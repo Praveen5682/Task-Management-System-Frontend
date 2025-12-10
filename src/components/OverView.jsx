@@ -38,7 +38,7 @@ const OverView = () => {
       {stats.map((stat, index) => (
         <div
           key={index}
-          className="flex items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition cursor-pointer"
+          className="flex items-center p-6 bg-white  shadow-md hover:shadow-lg transition cursor-pointer"
         >
           <div className={`p-4 rounded-full ${stat.bg} text-2xl`}>
             {stat.icon}

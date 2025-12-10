@@ -73,7 +73,7 @@ const Login = () => {
               placeholder="Email address"
               value={formData.email}
               onChange={handleChange}
-              className="w-full border rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border  p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
             <input
@@ -82,10 +82,10 @@ const Login = () => {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full border rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border  p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
-            <button className="bg-blue-600 text-white cursor-pointer py-3 rounded-lg mt-2 hover:bg-blue-700 transition-all font-medium">
+            <button className="bg-blue-600 text-white cursor-pointer py-3  mt-2 hover:bg-blue-700 transition-all font-medium">
               Login
             </button>
           </form>
