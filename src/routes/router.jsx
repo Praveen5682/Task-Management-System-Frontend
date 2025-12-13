@@ -3,7 +3,7 @@ import SignUp from "../pages/auth/SignUp";
 import Login from "../pages/auth/Login";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import AdminHome from "../pages/Dashboard/admin/AdminHome";
-import AdminTasks from "../pages/Dashboard/admin/AdminTasks";
+import AdminTasks from "../pages/Dashboard/admin/tasks/AdminTasks";
 import AdminProjects from "../pages/Dashboard/admin/AdminProjects";
 import AdminTeam from "../pages/Dashboard/admin/AdminTeam";
 import AdminUsers from "../pages/Dashboard/admin/AdminUsers";
