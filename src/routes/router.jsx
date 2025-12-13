@@ -5,7 +5,7 @@ import DashboardLayout from "../components/layout/DashboardLayout";
 import AdminHome from "../pages/Dashboard/admin/AdminHome";
 import AdminTasks from "../pages/Dashboard/admin/tasks/AdminTasks";
 import AdminProjects from "../pages/Dashboard/admin/AdminProjects";
-import AdminTeam from "../pages/Dashboard/admin/AdminTeam";
+import AdminTeam from "../pages/Dashboard/admin/team/AdminTeam";
 import AdminUsers from "../pages/Dashboard/admin/AdminUsers";
 
 const router = createBrowserRouter([
