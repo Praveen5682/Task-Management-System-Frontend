@@ -7,6 +7,7 @@ import AdminTasks from "../pages/Dashboard/admin/tasks/AdminTasks";
 import AdminProjects from "../pages/Dashboard/admin/AdminProjects";
 import AdminTeam from "../pages/Dashboard/admin/team/AdminTeam";
 import AdminUsers from "../pages/Dashboard/admin/AdminUsers";
+import AdminNotification from "../pages/Dashboard/admin/notifications/AdminNotification";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "tasks", element: <AdminTasks />, role: "admin" },
       { path: "projects", element: <AdminProjects />, role: "admin" },
       { path: "team", element: <AdminTeam />, role: "admin" },
+      { path: "notifications", element: <AdminNotification />, role: "admin" },
     ],
   },
   {
