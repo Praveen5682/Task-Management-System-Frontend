@@ -6,29 +6,69 @@ import {
   FiCheckCircle,
   FiUsers,
   FiBell,
+  FiSettings,
+  FiShield,
+  FiLayers,
+  FiBarChart2,
+  FiColumns,
+  FiUser,
+  FiCheckSquare,
 } from "react-icons/fi";
 
-const Sidebar = ({ closeSidebar }) => {
+const Sidebar = ({ closeSidebar, role }) => {
   const location = useLocation();
 
-  const menuItems = [
+  /* ===================== MENUS ===================== */
+
+  const adminMenu = [
     { path: "/", label: "Dashboard", icon: FiHome },
     { path: "/users", label: "Users", icon: FiUsers },
-    { path: "/tasks", label: "Tasks", icon: FiClipboard },
-    { path: "/projects", label: "Projects", icon: FiCheckCircle },
-    { path: "/team", label: "Team", icon: FiUsers },
-    {
-      path: "/notifications",
-      label: "Notifications",
-      icon: FiBell,
-    },
+    { path: "/roles", label: "Roles & Permissions", icon: FiShield },
+    { path: "/projects", label: "Projects", icon: FiLayers },
+    { path: "/team", label: "Teams", icon: FiUsers },
+    { path: "/tasks", label: "All Tasks", icon: FiClipboard },
+    { path: "/reports", label: "Reports", icon: FiBarChart2 },
+    { path: "/notifications", label: "Notifications", icon: FiBell },
+    { path: "/settings", label: "Settings", icon: FiSettings },
   ];
 
+  const teamLeadMenu = [
+    { path: "/", label: "Dashboard", icon: FiHome },
+    { path: "/my-team", label: "My Team", icon: FiUsers },
+    { path: "/projects", label: "Projects", icon: FiLayers },
+    { path: "/tasks", label: "Team Tasks", icon: FiClipboard },
+    { path: "/task-board", label: "Task Board", icon: FiColumns },
+    { path: "/reports", label: "Reports", icon: FiBarChart2 },
+    { path: "/notifications", label: "Notifications", icon: FiBell },
+    { path: "/profile", label: "Profile", icon: FiUser },
+  ];
+
+  const employeeMenu = [
+    { path: "/", label: "Dashboard", icon: FiHome },
+    { path: "/my-tasks", label: "My Tasks", icon: FiCheckSquare },
+    { path: "/task-board", label: "Task Board", icon: FiColumns },
+    { path: "/my-projects", label: "Projects", icon: FiLayers },
+    { path: "/notifications", label: "Notifications", icon: FiBell },
+    { path: "/profile", label: "Profile", icon: FiUser },
+  ];
+
+  /* ===================== ROLE SWITCH ===================== */
+
+  // const getMenuByRole = () => {
+  //   if (role === "admin") return adminMenu;
+  //   if (role === "TL") return teamLeadMenu;
+  //   return employeeMenu;
+  // };
+
+  const menuItems = adminMenu;
+
+  /* ===================== UI ===================== */
+
   return (
-    <aside className="w-64 h-full bg-white border-r border-gray-300 flex flex-col">
+    <aside className="w-64 h-full bg-white border-r border-gray-200 flex flex-col">
       {/* Logo */}
-      <div className="h-16 flex items-center px-6 border-b border-gray-300">
-        <h2 className="text-xl font-bold tracking-tight">
+      <div className="h-16 flex items-center px-6 border-b border-gray-200">
+        <h2 className="text-xl font-bold">
           Task<span className="text-green-600">Manager</span>
         </h2>
       </div>
@@ -48,8 +88,7 @@ const Sidebar = ({ closeSidebar }) => {
                   active
                     ? "bg-green-600 text-white shadow-sm"
                     : "text-gray-700 hover:bg-green-50"
-                }
-              `}
+                }`}
             >
               <Icon
                 className={`text-lg ${
@@ -65,8 +104,8 @@ const Sidebar = ({ closeSidebar }) => {
       </nav>
 
       {/* Footer */}
-      <div className="px-6 py-4 border-t border-gray-300 text-xs text-gray-600">
-        Done by Praveen Kumar
+      <div className="px-6 py-4 border-t text-xs text-gray-500 border-gray-200">
+        Built by Praveen Kumar
       </div>
     </aside>
   );
