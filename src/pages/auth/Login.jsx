@@ -52,13 +52,13 @@ const Login = () => {
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-2">
             <h2 className="text-3xl font-bold text-gray-900 text-center sm:text-left">
-              Welcome Back
+              Login
             </h2>
             <p className="text-sm text-center sm:text-left">
               New user?{" "}
               <Link
                 to="/signup"
-                className="text-blue-600 font-semibold hover:underline"
+                className="text-green-600 font-semibold hover:underline"
               >
                 Create account
               </Link>
@@ -73,7 +73,7 @@ const Login = () => {
               placeholder="Email address"
               value={formData.email}
               onChange={handleChange}
-              className="w-full border  p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border  p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
 
             <input
@@ -82,17 +82,17 @@ const Login = () => {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full border  p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border  p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
 
-            <button className="bg-blue-600 text-white cursor-pointer py-3  mt-2 hover:bg-blue-700 transition-all font-medium">
+            <button className="bg-green-600 text-white cursor-pointer py-3  mt-2 hover:bg-green-700 transition-all font-medium">
               Login
             </button>
           </form>
 
           {/* Footer */}
           <div className="text-center mt-4">
-            <button className="text-blue-600 text-sm hover:underline">
+            <button className="text-green-600 text-sm hover:underline">
               Forgot Password?
             </button>
           </div>

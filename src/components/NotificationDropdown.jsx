@@ -30,7 +30,7 @@ const NotificationDropdown = () => {
         className="text-xl p-2 rounded-full hover:bg-gray-100 transition"
         onClick={() => setOpen(!open)}
       >
-        <FiBell />
+        <FiBell className="cursor-pointer"/>
       </button>
 
       {/* Dropdown */}

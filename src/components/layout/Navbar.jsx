@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiLogOut } from "react-icons/fi";
 import NotificationDropdown from "../NotificationDropdown";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -14,25 +14,32 @@ const Navbar = ({ toggleSidebar }) => {
   };
 
   return (
-    <div className="h-16 bg-white shadow flex items-center justify-between px-6">
-      {/* Mobile Menu Button */}
-      <button className="md:hidden text-2xl" onClick={toggleSidebar}>
-        <FiMenu />
-      </button>
+    <header className="h-16 bg-white border-b border-gray-300 flex items-center justify-between px-6">
+      {/* Left */}
+      <div className="flex items-center gap-3">
+        <button
+          className="md:hidden text-xl text-gray-600 hover:text-gray-900"
+          onClick={toggleSidebar}
+        >
+          <FiMenu />
+        </button>
 
-      <h1 className="text-xl font-semibold">Admin Dashboard</h1>
+        <h1 className="text-lg font-semibold text-gray-800">Admin Dashboard</h1>
+      </div>
 
-      <div className="flex items-center justify-center gap-4">
+      {/* Right */}
+      <div className="flex items-center gap-4">
         <NotificationDropdown />
 
         <button
           onClick={handleLogout}
-          className="px-4 py-1 bg-red-600 text-white rounded cursor-pointer hover:bg-red-700"
+          className="flex items-center bg-red-600 gap-2 px-3 py-1.5 rounded-lg text-sm font-medium text-white cursor-pointer hover:bg-red-700 transition"
         >
+          <FiLogOut />
           Logout
         </button>
       </div>
-    </div>
+    </header>
   );
 };
 

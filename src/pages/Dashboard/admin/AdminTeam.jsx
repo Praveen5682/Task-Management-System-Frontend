@@ -73,7 +73,7 @@ const AdminTeam = () => {
 
                 <td className="p-3 border-b">
                   <div className="flex gap-2">
-                    <button className="px-3 py-1 bg-blue-100 text-blue-700 rounded-md text-sm hover:bg-blue-200">
+                    <button className="px-3 py-1 bg-green-100 text-green-700 rounded-md text-sm hover:bg-green-200">
                       Edit
                     </button>
                     <button className="px-3 py-1 bg-red-100 text-red-700 rounded-md text-sm hover:bg-red-200">

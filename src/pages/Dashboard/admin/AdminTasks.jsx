@@ -1,4 +1,5 @@
 import React from "react";
+import { FaPlus, FaEdit, FaTrash, FaUserPlus } from "react-icons/fa";
 
 const AdminTasks = () => {
   const tasks = [
@@ -34,60 +35,72 @@ const AdminTasks = () => {
   const badgeColor = (status) => {
     switch (status) {
       case "Completed":
-        return "bg-green-100 text-green-700";
+        return "bg-green-50 text-green-600 border border-green-200";
       case "In Progress":
-        return "bg-yellow-100 text-yellow-700";
+        return "bg-green-50 text-green-700 border border-green-200";
       default:
-        return "bg-red-100 text-red-700";
+        return "bg-red-50 text-red-600 border border-red-200";
     }
   };
 
   const priorityColor = (priority) => {
     switch (priority) {
       case "High":
-        return "bg-red-100 text-red-700";
+        return "bg-red-50 text-red-600 border border-red-200";
       case "Medium":
-        return "bg-blue-100 text-blue-700";
+        return "bg-green-50 text-green-600 border border-green-200";
       default:
-        return "bg-gray-100 text-gray-700";
+        return "bg-gray-50 text-gray-600 border border-gray-300";
     }
   };
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-semibold mb-5">Admin Task Management</h2>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-900">Tasks</h2>
+          <p className="text-sm text-gray-500 mt-1">
+            Manage admin-level tasks and approvals
+          </p>
+        </div>
 
-      <div className="overflow-x-auto bg-white shadow rounded-xl">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="bg-gray-100 text-left text-sm">
-              <th className="p-3 border-b">ID</th>
-              <th className="p-3 border-b">Task Title</th>
-              <th className="p-3 border-b">Description</th>
-              <th className="p-3 border-b">Assigned To</th>
-              <th className="p-3 border-b">Priority</th>
-              <th className="p-3 border-b">Due Date</th>
-              <th className="p-3 border-b">Status</th>
-              <th className="p-3 border-b">Actions</th>
+        <button className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-md cursor-pointer shadow-sm hover:bg-green-700 transition">
+          <FaPlus size={14} />
+          New Task
+        </button>
+      </div>
+
+      {/* Table Card */}
+      <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+        <table className="w-full text-sm">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-500">
+            <tr>
+              <th className="px-6 py-4 text-left">Task</th>
+              <th className="px-6 py-4 text-left">Assignee</th>
+              <th className="px-6 py-4 text-left">Priority</th>
+              <th className="px-6 py-4 text-left">Due</th>
+              <th className="px-6 py-4 text-left">Status</th>
+              <th className="px-6 py-4 text-right">Actions</th>
             </tr>
           </thead>
 
-          <tbody>
+          <tbody className="divide-y divide-gray-100">
             {tasks.map((task) => (
-              <tr key={task.id} className="hover:bg-gray-50">
-                <td className="p-3 border-b">{task.id}</td>
-
-                <td className="p-3 border-b font-medium">{task.title}</td>
-
-                <td className="p-3 border-b text-sm text-gray-600">
-                  {task.description}
+              <tr key={task.id} className="hover:bg-gray-50 transition">
+                {/* Task Info */}
+                <td className="px-6 py-4">
+                  <p className="font-medium text-gray-900">{task.title}</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {task.description}
+                  </p>
                 </td>
 
-                <td className="p-3 border-b">{task.assignedTo}</td>
+                <td className="px-6 py-4 text-gray-700">{task.assignedTo}</td>
 
-                <td className="p-3 border-b">
+                <td className="px-6 py-4">
                   <span
-                    className={`px-2 py-1 rounded-md text-xs font-medium ${priorityColor(
+                    className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${priorityColor(
                       task.priority
                     )}`}
                   >
@@ -95,11 +108,11 @@ const AdminTasks = () => {
                   </span>
                 </td>
 
-                <td className="p-3 border-b">{task.dueDate}</td>
+                <td className="px-6 py-4 text-gray-600">{task.dueDate}</td>
 
-                <td className="p-3 border-b">
+                <td className="px-6 py-4">
                   <span
-                    className={`px-3 py-1 rounded-md text-sm font-medium ${badgeColor(
+                    className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${badgeColor(
                       task.status
                     )}`}
                   >
@@ -107,13 +120,18 @@ const AdminTasks = () => {
                   </span>
                 </td>
 
-                <td className="p-3 border-b">
-                  <div className="flex gap-2">
-                    <button className="px-3 py-1 bg-blue-100 text-blue-700 rounded-md text-sm hover:bg-blue-200">
-                      Edit
+                {/* Actions */}
+                <td className="px-6 py-4 text-right">
+                  <div className="flex items-center justify-end gap-2  group-hover:opacity-100 transition">
+                    <button className="p-2 rounded-lg hover:bg-indigo-50 text-gray-500 cursor-pointer">
+                      <FaUserPlus size={14} />
                     </button>
-                    <button className="px-3 py-1 bg-red-100 text-red-700 rounded-md text-sm hover:bg-red-200">
-                      Delete
+                    <button className="p-2 rounded-lg hover:bg-indigo-50 text-gray-500 cursor-pointer">
+                      <FaEdit size={14} />
+                    </button>
+
+                    <button className="p-2 rounded-lg hover:bg-red-50 text-red-600 cursor-pointer">
+                      <FaTrash size={14} />
                     </button>
                   </div>
                 </td>

@@ -7,8 +7,8 @@ const OverView = () => {
       title: "Total Tasks",
       value: 320,
       icon: <FiClipboard />,
-      bg: "bg-blue-100",
-      textColor: "text-blue-600",
+      bg: "bg-green-100",
+      textColor: "text-green-600",
     },
     {
       title: "Completed Tasks",
@@ -21,15 +21,15 @@ const OverView = () => {
       title: "Pending Tasks",
       value: 80,
       icon: <FiClock />,
-      bg: "bg-yellow-100",
-      textColor: "text-yellow-600",
+      bg: "bg-green-100",
+      textColor: "text-green-600",
     },
     {
       title: "Team Members",
       value: 12,
       icon: <FiUsers />,
-      bg: "bg-purple-100",
-      textColor: "text-purple-600",
+      bg: "bg-green-100",
+      textColor: "text-green-600",
     },
   ];
 
@@ -38,7 +38,7 @@ const OverView = () => {
       {stats.map((stat, index) => (
         <div
           key={index}
-          className="flex items-center p-6 bg-white  shadow-md hover:shadow-lg transition cursor-pointer"
+          className="flex items-center p-6 bg-white rounded-xl shadow-sm hover:shadow-lg transition cursor-pointer"
         >
           <div className={`p-4 rounded-full ${stat.bg} text-2xl`}>
             {stat.icon}

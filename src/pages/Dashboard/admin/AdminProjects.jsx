@@ -39,16 +39,16 @@ const AdminProjects = () => {
       case "Completed":
         return "bg-green-100 text-green-700";
       case "In Progress":
-        return "bg-blue-100 text-blue-700";
+        return "bg-green-100 text-green-700";
       default:
-        return "bg-yellow-100 text-yellow-700";
+        return "bg-green-100 text-green-700";
     }
   };
 
   const progressColor = (progress) => {
     if (progress === 100) return "bg-green-500";
-    if (progress >= 60) return "bg-blue-500";
-    return "bg-yellow-500";
+    if (progress >= 60) return "bg-green-500";
+    return "bg-green-500";
   };
 
   return (
@@ -123,7 +123,7 @@ const AdminProjects = () => {
 
                 <td className="p-3 border-b">
                   <div className="flex gap-2">
-                    <button className="px-3 py-1 bg-blue-100 text-blue-700 rounded-md text-sm hover:bg-blue-200">
+                    <button className="px-3 py-1 bg-green-100 text-green-700 rounded-md text-sm hover:bg-green-200">
                       Edit
                     </button>
                     <button className="px-3 py-1 bg-red-100 text-red-700 rounded-md text-sm hover:bg-red-200">
