@@ -22,12 +22,17 @@ const AuthProvider = ({ children }) => {
   }, [token]);
 
   const login = (token) => {
+    const decoded = jwtDecode(token);
+    const roleId = decoded.role;
+
     localStorage.setItem("token", token);
+    localStorage.setItem("role", roleId);
     setToken(token);
   };
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("role");
     setToken(null);
     setUser(null);
   };
