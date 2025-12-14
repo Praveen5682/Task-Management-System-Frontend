@@ -4,11 +4,11 @@ import Login from "../pages/auth/Login";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import AdminHome from "../pages/Dashboard/admin/AdminHome";
 import AdminTasks from "../pages/Dashboard/admin/tasks/AdminTasks";
-import AdminProjects from "../pages/Dashboard/admin/AdminProjects";
 import AdminTeam from "../pages/Dashboard/admin/team/AdminTeam";
 import AdminUsers from "../pages/Dashboard/admin/AdminUsers";
 import AdminNotification from "../pages/Dashboard/admin/notifications/AdminNotification";
 import AdminRoles from "../pages/Dashboard/admin/roles/AdminRoles";
+import AdminProjects from "../pages/Dashboard/admin/projects/AdminProjects";
 
 const router = createBrowserRouter([
   {
