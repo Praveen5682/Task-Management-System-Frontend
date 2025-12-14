@@ -1,6 +1,6 @@
 import React from "react";
-import Banner from "../../../components/Banner";
-import OverView from "../../../components/OverView";
+import Banner from "../../components/Banner";
+import OverView from "../../components/OverView";
 
 const Dashboard = () => {
   return (

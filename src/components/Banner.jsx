@@ -41,7 +41,7 @@ const Banner = () => {
           <img
             src={bannerImg}
             alt="Dashboard Banner"
-            className="w-full max-w-sm max-h-40 object-cover rounded-lg"
+            className="w-full max-w-sm max-h-46 object-contain rounded-lg"
           />
         </div>
       </div>

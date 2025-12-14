@@ -49,7 +49,7 @@ const Sidebar = ({ closeSidebar, role }) => {
     { path: "/task-board", label: "Task Board", icon: FiColumns },
     { path: "/reports", label: "Reports", icon: FiBarChart2 },
     { path: "/notifications", label: "Notifications", icon: FiBell },
-    { path: "/profile", label: "Profile", icon: FiUser },
+    { path: "/settings", label: "settings", icon: FiUser },
   ];
 
   const employeeMenu = [

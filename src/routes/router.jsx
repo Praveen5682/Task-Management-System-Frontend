@@ -6,7 +6,7 @@ import SignUp from "../pages/auth/SignUp";
 import Login from "../pages/auth/Login";
 
 // Admin Dashboard Pages
-import Dashboard from "../pages/Dashboard/admin/Dashboard";
+import Dashboard from "../pages/Dashboard/Dashboard";
 import AdminUsers from "../pages/Dashboard/admin/AdminUsers";
 import AdminRoles from "../pages/Dashboard/admin/roles/AdminRoles";
 import AdminProjects from "../pages/Dashboard/admin/projects/AdminProjects";
@@ -16,6 +16,7 @@ import AdminReports from "../pages/Dashboard/admin/reports/AdminReports";
 import AdminNotification from "../pages/Dashboard/admin/notifications/AdminNotification";
 import SettingsPage from "../pages/Dashboard/Settings";
 import ProtectedRoute from "./protectedRoute";
+import MyTeamMembers from "../pages/Dashboard/employee/TeamMembers";
 
 const router = createBrowserRouter([
   // Main dashboard layout
@@ -75,7 +76,15 @@ const router = createBrowserRouter([
       {
         path: "settings",
         element: (
-          <ProtectedRoute element={<SettingsPage />} allowedRoles={[1]} />
+          <ProtectedRoute element={<SettingsPage />} allowedRoles={[1, 2]} />
+        ),
+      },
+
+      // Team Lead Team Management
+      {
+        path: "my-team",
+        element: (
+          <ProtectedRoute element={<MyTeamMembers />} allowedRoles={[2]} />
         ),
       },
     ],
