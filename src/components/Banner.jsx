@@ -3,7 +3,7 @@ import bannerImg from "../../assets/bannerImg.jpg";
 
 const Banner = () => {
   return (
-    <section className="w-full bg-gradient-to-r from-green-600 to-green-400 text-white py-16 px-6 shadow-lg mb-8 rounded-xl">
+    <section className="w-full bg-gradient-to-r from-green-800 to-green-500 text-white py-16 px-6 shadow-lg mb-8 rounded-xl">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:justify-between gap-8 ">
         {/* LEFT SIDE: Text */}
         <div className="md:w-1/2 text-center md:text-left">
