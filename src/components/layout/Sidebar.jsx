@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   FiHome,
@@ -15,17 +15,17 @@ import {
 } from "react-icons/fi";
 
 import adminAvatar from "../../../assets/avatar/admin.jpg";
+import teamLeadAvatar from "../../../assets/avatar/tl.jpg";
+import employeeAvatar from "../../../assets/avatar/employee.png";
+import { AuthContext } from "../../context/AuthContext";
 
 const Sidebar = ({ closeSidebar, role }) => {
   const location = useLocation();
+  const roleIdFromLocalStorage = Number(localStorage.getItem("role"));
+
+  const { user } = useContext(AuthContext);
 
   /* ===================== USER ===================== */
-
-  const user = {
-    name: "Praveen Kumar",
-    email: "praveen@gmail.com",
-    avatar: adminAvatar,
-  };
 
   /* ===================== MENUS ===================== */
 
@@ -64,12 +64,12 @@ const Sidebar = ({ closeSidebar, role }) => {
   /* ===================== ROLE SWITCH ===================== */
 
   const getMenuByRole = () => {
-    if (role === "admin") return adminMenu;
-    if (role === "TL") return teamLeadMenu;
+    if (roleIdFromLocalStorage === 1) return adminMenu;
+    if (roleIdFromLocalStorage === 2) return teamLeadMenu;
     return employeeMenu;
   };
 
-  const menuItems = adminMenu;
+  const menuItems = getMenuByRole();
 
   /* ===================== UI ===================== */
 
@@ -86,23 +86,35 @@ const Sidebar = ({ closeSidebar, role }) => {
       {/* User Profile */}
       <div className="px-6 py-4 border-b border-gray-200 flex flex-col items-center gap-2 hover:bg-gray-50">
         {/* Avatar */}
-        {user.avatar ? (
-          <img
-            src={user.avatar}
-            alt="Avatar"
-            className="w-14 h-14 rounded-full object-cover"
-          />
-        ) : (
-          <div className="w-14 h-14 rounded-full bg-green-600 flex items-center justify-center text-white text-lg font-semibold">
-            {user.name.charAt(0)}
-          </div>
-        )}
+        <div className="w-14 h-14 rounded-full overflow-hidden">
+          {roleIdFromLocalStorage === 1 && (
+            <img
+              src={adminAvatar}
+              alt="Admin"
+              className="w-full h-full object-cover"
+            />
+          )}
+          {roleIdFromLocalStorage === 2 && (
+            <img
+              src={teamLeadAvatar}
+              alt="Team Lead"
+              className="w-full h-full object-cover"
+            />
+          )}
+          {roleIdFromLocalStorage === 3 && (
+            <div className="w-full h-full bg-green-600 flex items-center justify-center text-white text-lg font-semibold">
+              {user?.name?.charAt(0) || "U"}
+            </div>
+          )}
+        </div>
 
         {/* User Info */}
         <div className="leading-tight text-center">
-          <p className="text-sm font-semibold text-gray-800">{user.name}</p>
+          <p className="text-sm font-semibold text-gray-800">
+            {user?.name || "User"}
+          </p>
           <p className="text-xs text-gray-500 truncate max-w-[160px]">
-            {user.email}
+            {user?.email || "user@example.com"}
           </p>
         </div>
       </div>

@@ -11,6 +11,7 @@ const SignUp = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    role: "",
   });
 
   const navigate = useNavigate();
@@ -86,6 +87,19 @@ const SignUp = () => {
               }
               className="w-full border p-3 focus:ring-2 focus:ring-green-500"
             />
+
+            <select
+              value={formData.role}
+              onChange={(e) =>
+                setFormData({ ...formData, role: e.target.value })
+              }
+              className="w-full border p-3 focus:ring-2 focus:ring-green-500"
+            >
+              <option value="">Select Role</option>
+              <option value="team-lead">Team Leader</option>
+              <option value="employee">Employee</option>
+            </select>
+
             <button className="w-full bg-green-600 text-white py-3 rounded-md hover:bg-green-700">
               Sign Up
             </button>

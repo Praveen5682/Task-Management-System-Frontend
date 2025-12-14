@@ -7,11 +7,20 @@ import { useNavigate } from "react-router-dom";
 const Navbar = ({ toggleSidebar }) => {
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const roleIdFromLocalStorage = Number(localStorage.getItem("role"));
 
   const handleLogout = () => {
     logout();
     navigate("/login");
   };
+
+  const handleDashboardName = () => {
+    if (roleIdFromLocalStorage === 1) return "Admin Dashboard";
+    if (roleIdFromLocalStorage === 2) return "Team Lead Dashboard";
+    return "Employee Dashboard";
+  };
+
+  const dashBoardName = handleDashboardName();
 
   return (
     <header className="h-16 bg-white border-b border-gray-300 flex items-center justify-between px-6">
@@ -23,8 +32,9 @@ const Navbar = ({ toggleSidebar }) => {
         >
           <FiMenu />
         </button>
-
-        <h1 className="text-lg font-semibold text-gray-800">Admin Dashboard</h1>
+        <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full">
+          <span>{dashBoardName}</span>
+        </div>{" "}
       </div>
 
       {/* Right */}

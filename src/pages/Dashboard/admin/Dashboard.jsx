@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "../../../components/Banner";
 import OverView from "../../../components/OverView";
 
-const AdminHome = () => {
+const Dashboard = () => {
   return (
     <div>
       <Banner />
@@ -11,4 +11,4 @@ const AdminHome = () => {
   );
 };
 
-export default AdminHome;
+export default Dashboard;
