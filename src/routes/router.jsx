@@ -8,6 +8,7 @@ import AdminProjects from "../pages/Dashboard/admin/AdminProjects";
 import AdminTeam from "../pages/Dashboard/admin/team/AdminTeam";
 import AdminUsers from "../pages/Dashboard/admin/AdminUsers";
 import AdminNotification from "../pages/Dashboard/admin/notifications/AdminNotification";
+import AdminRoles from "../pages/Dashboard/admin/roles/AdminRoles";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "projects", element: <AdminProjects />, role: "admin" },
       { path: "team", element: <AdminTeam />, role: "admin" },
       { path: "notifications", element: <AdminNotification />, role: "admin" },
+      { path: "roles", element: <AdminRoles />, role: "admin" },
     ],
   },
   {
