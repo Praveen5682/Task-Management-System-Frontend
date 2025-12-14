@@ -38,6 +38,14 @@ const DashboardLayout = () => {
         <main className="p-4 overflow-y-auto flex-1">
           <Outlet />
         </main>
+
+        {/* Footer */}
+        <div className="px-6 py-4 border-t border-gray-200 text-center">
+          <p className="text-xs text-gray-500 tracking-wide">
+            Built with <span className="text-red-500">♥</span> by{" "}
+            <span className="font-medium text-green-600">Praveen Kumar</span>
+          </p>
+        </div>
       </div>
     </div>
   );

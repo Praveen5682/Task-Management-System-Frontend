@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import {
   FiHome,
   FiClipboard,
-  FiCheckCircle,
   FiUsers,
   FiBell,
   FiSettings,
@@ -15,8 +14,18 @@ import {
   FiCheckSquare,
 } from "react-icons/fi";
 
+import adminAvatar from "../../../assets/avatar/admin.jpg";
+
 const Sidebar = ({ closeSidebar, role }) => {
   const location = useLocation();
+
+  /* ===================== USER ===================== */
+
+  const user = {
+    name: "Praveen Kumar",
+    email: "praveen@gmail.com",
+    avatar: adminAvatar,
+  };
 
   /* ===================== MENUS ===================== */
 
@@ -54,11 +63,11 @@ const Sidebar = ({ closeSidebar, role }) => {
 
   /* ===================== ROLE SWITCH ===================== */
 
-  // const getMenuByRole = () => {
-  //   if (role === "admin") return adminMenu;
-  //   if (role === "TL") return teamLeadMenu;
-  //   return employeeMenu;
-  // };
+  const getMenuByRole = () => {
+    if (role === "admin") return adminMenu;
+    if (role === "TL") return teamLeadMenu;
+    return employeeMenu;
+  };
 
   const menuItems = adminMenu;
 
@@ -71,6 +80,31 @@ const Sidebar = ({ closeSidebar, role }) => {
         <h2 className="text-xl font-bold">
           Task<span className="text-green-600">Manager</span>
         </h2>
+      </div>
+
+      {/* User Profile */}
+      {/* User Profile */}
+      <div className="px-6 py-4 border-b border-gray-200 flex flex-col items-center gap-2 hover:bg-gray-50">
+        {/* Avatar */}
+        {user.avatar ? (
+          <img
+            src={user.avatar}
+            alt="Avatar"
+            className="w-14 h-14 rounded-full object-cover"
+          />
+        ) : (
+          <div className="w-14 h-14 rounded-full bg-green-600 flex items-center justify-center text-white text-lg font-semibold">
+            {user.name.charAt(0)}
+          </div>
+        )}
+
+        {/* User Info */}
+        <div className="leading-tight text-center">
+          <p className="text-sm font-semibold text-gray-800">{user.name}</p>
+          <p className="text-xs text-gray-500 truncate max-w-[160px]">
+            {user.email}
+          </p>
+        </div>
       </div>
 
       {/* Menu */}
@@ -102,11 +136,6 @@ const Sidebar = ({ closeSidebar, role }) => {
           );
         })}
       </nav>
-
-      {/* Footer */}
-      <div className="px-6 py-4 border-t text-xs text-gray-500 border-gray-200">
-        Built by Praveen Kumar
-      </div>
     </aside>
   );
 };
