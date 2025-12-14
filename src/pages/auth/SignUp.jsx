@@ -32,7 +32,7 @@ const SignUp = () => {
   return (
     <section className="min-h-screen grid grid-cols-1 md:grid-cols-2">
       {/* Left Image */}
-      <div className="hidden md:flex flex-col items-center justify-center px-16 bg-black">
+      <div className="hidden md:flex flex-col items-center justify-center px-16 bg-green-700">
         <img
           src={signupImg}
           alt="Sign Up"
@@ -43,7 +43,7 @@ const SignUp = () => {
           Join Us Today 🚀
         </h3>
 
-        <p className="text-gray-400 text-center max-w-md leading-relaxed">
+        <p className="text-white text-center max-w-md leading-relaxed">
           Create an account to manage projects, track progress, and collaborate
           seamlessly with your team.
         </p>

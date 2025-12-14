@@ -33,7 +33,7 @@ const Login = () => {
     <section className="min-h-screen grid grid-cols-1 md:grid-cols-2">
       {/* Left Image */}
       {/* Left Image + Text */}
-      <div className="hidden md:flex flex-col items-center justify-center px-16 bg-black">
+      <div className="hidden md:flex flex-col items-center justify-center px-16 bg-green-700">
         <img
           src={loginImg}
           alt="Login"
@@ -44,7 +44,7 @@ const Login = () => {
           Welcome Back 👋
         </h3>
 
-        <p className="text-gray-400 text-center max-w-md leading-relaxed">
+        <p className="text-white text-center max-w-md leading-relaxed">
           Login to manage your dashboard, track progress, and collaborate with
           your team efficiently.
         </p>

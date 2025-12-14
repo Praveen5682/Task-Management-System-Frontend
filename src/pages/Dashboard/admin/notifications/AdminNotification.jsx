@@ -4,19 +4,6 @@ import Button from "../../../../components/Button";
 import CreateNotificationModal from "./CreateNotificationModal";
 import EditNotificationModal from "./EditNotificationModal";
 
-const ToggleSwitch = ({ value, onChange }) => (
-  <label className="relative inline-flex items-center cursor-pointer">
-    <input
-      type="checkbox"
-      checked={value}
-      onChange={onChange}
-      className="sr-only peer"
-    />
-    <div className="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-all"></div>
-    <span className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
-  </label>
-);
-
 const AdminNotification = () => {
   const [activeTab, setActiveTab] = useState("active");
   const [openCreateModal, setOpenCreateModal] = useState(false);
@@ -50,6 +37,19 @@ const AdminNotification = () => {
       },
     ],
   });
+
+  const ToggleSwitch = ({ value, onChange }) => (
+    <label className="relative inline-flex items-center cursor-pointer">
+      <input
+        type="checkbox"
+        checked={value}
+        onChange={onChange}
+        className="sr-only peer"
+      />
+      <div className="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-all"></div>
+      <span className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transition peer-checked:translate-x-5"></span>
+    </label>
+  );
 
   const toggleStatus = (id) => {
     setNotifications((prev) => ({
