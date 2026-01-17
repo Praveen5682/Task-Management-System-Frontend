@@ -1,5 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
+import getUsers from "../../../services/users/users";
 
 const ToggleSwitch = ({ value, onChange }) => {
   return (
@@ -19,79 +21,13 @@ const ToggleSwitch = ({ value, onChange }) => {
 const AdminUsers = () => {
   const [activeTab, setActiveTab] = useState("admin");
 
-  const [users, setUsers] = useState({
-    admin: [
-      {
-        id: 1,
-        name: "Praveen Kumar",
-        email: "admin1@example.com",
-        role: "Admin",
-        lastActive: "2 hours ago",
-        joined: "2025-01-10",
-      },
-      {
-        id: 2,
-        name: "Arun Kumar",
-        role: "Admin",
-        email: "admin2@example.com",
-        lastActive: "2 hours ago",
-        joined: "2025-01-12",
-      },
-    ],
-
-    tl: [
-      {
-        id: 3,
-        name: "Keerthana",
-        email: "tl1@example.com",
-        role: "Team Leader",
-        employees: 12,
-        joined: "2024-12-20",
-        lastActive: "2 hours ago",
-        status: true,
-      },
-      {
-        id: 4,
-        name: "Nithya",
-        email: "tl2@example.com",
-        role: "Team Leader",
-        employees: 8,
-        joined: "2024-11-15",
-        lastActive: "2 hours ago",
-        status: false,
-      },
-    ],
-
-    employee: [
-      {
-        id: 5,
-        name: "Rahul",
-        email: "emp1@example.com",
-        role: "Employee",
-        joined: "2025-02-01",
-        lastActive: "2 hours ago",
-        status: true,
-      },
-      {
-        id: 6,
-        name: "Vimal",
-        email: "emp2@example.com",
-        role: "Employee",
-        joined: "2025-02-05",
-        lastActive: "2 hours ago",
-        status: true,
-      },
-      {
-        id: 7,
-        name: "Sathish",
-        email: "emp3@example.com",
-        role: "Employee",
-        joined: "2025-03-01",
-        lastActive: "2 hours ago",
-        status: false,
-      },
-    ],
+  const { data } = useQuery({
+    queryKey: ["users"],
+    queryFn: getUsers,
   });
+
+  const usersData = data?.data;
+  console.log(usersData);
 
   const getTitle = () => {
     if (activeTab === "admin") return "Admin Users";
@@ -99,14 +35,14 @@ const AdminUsers = () => {
     return "Employees";
   };
 
-  const toggleStatus = (id) => {
-    setUsers((prev) => ({
-      ...prev,
-      [activeTab]: prev[activeTab].map((u) =>
-        u.id === id ? { ...u, status: !u.status } : u
-      ),
-    }));
-  };
+  const filteredUsers =
+    usersData?.filter((user) =>
+      activeTab === "admin"
+        ? user.role === 1
+        : activeTab === "tl"
+          ? user.role === 2
+          : user.role === 3,
+    ) || [];
 
   return (
     <div className="p-6">
@@ -137,8 +73,8 @@ const AdminUsers = () => {
             {tab === "admin"
               ? "Admins"
               : tab === "tl"
-              ? "Team Leaders"
-              : "Employees"}
+                ? "Team Leaders"
+                : "Employees"}
           </button>
         ))}
       </div>
@@ -167,7 +103,7 @@ const AdminUsers = () => {
           </thead>
 
           <tbody className="divide-y divide-gray-100">
-            {users[activeTab].map((user) => (
+            {filteredUsers.map((user, index) => (
               <tr key={user.id} className="hover:bg-gray-50 transition">
                 {/* User */}
                 <td className="px-6 py-4">
@@ -178,7 +114,9 @@ const AdminUsers = () => {
                 {/* Role */}
                 <td className="px-6 py-4">
                   <span className="inline-flex px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
-                    {user.role}
+                    {(user.role === 1 && "Admin") ||
+                      (user.role === 2 && "Team Leader") ||
+                      (user.role === 3 && "Employee")}
                   </span>
                 </td>
 
