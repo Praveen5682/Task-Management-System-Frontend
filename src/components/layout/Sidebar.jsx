@@ -27,8 +27,6 @@ const Sidebar = ({ closeSidebar, role }) => {
 
   /* ===================== USER ===================== */
 
-  /* ===================== MENUS ===================== */
-
   const adminMenu = [
     { path: "/", label: "Dashboard", icon: FiHome },
     { path: "/users", label: "Users", icon: FiUsers },
